@@ -1,0 +1,3 @@
+[2023-08-23T22:49:18,448 DEBUG] pages.Step - driver is load
+[2023-08-23T22:49:20,305 DEBUG] pages.Step - driver is created
+[2023-08-23T22:49:23,699 DEBUG] pages.Step - driver is closed
