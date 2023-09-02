@@ -1,4 +1,8 @@
-package pages;
+package help;
+
+import pages.AuthorizationPage;
+import pages.PageMain;
+import pages.ProfilePage;
 
 public class Step {
 

@@ -1,16 +1,13 @@
 package pages;
 
+import driver.WebDriverOptions;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class PageMain {
     protected String baseUrl = "https://otus.ru/";
 
-    public PageMain(){
-        PageFactory.initElements(WebDriverFactory.getDriver(), this);
-    }
     @FindBy(xpath = "//div[@class=\"sc-r03h0s-5 bYKNcH\"]")
     protected WebElement loginButton;
 
@@ -31,7 +28,7 @@ public class PageMain {
     }
 
     public void open(){
-        WebDriverFactory.getDriver().get(baseUrl);
+        WebDriverOptions.getDriver().get(baseUrl);
     }
 
     public void openAuthorizationPage() {
@@ -39,8 +36,8 @@ public class PageMain {
     }
 
     public void openProfilePage() {
-        WebDriverFactory.getWait().until(ExpectedConditions.visibilityOf(getUserName()));
-        WebDriverFactory.getAction().moveToElement(getUserName()).perform();
+        WebDriverOptions.getWait().until(ExpectedConditions.visibilityOf(getUserName()));
+        WebDriverOptions.getAction().moveToElement(getUserName()).perform();
         getMyProfile().click();
     }
 }

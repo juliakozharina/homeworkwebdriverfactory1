@@ -2,12 +2,8 @@ package pages;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
-public class AuthorizationPage {
-    public AuthorizationPage(){
-        PageFactory.initElements(WebDriverFactory.getDriver(),this);
-    }
+public class AuthorizationPage extends BasePage {
 
     @FindBy(xpath = "(//input[@required])[1]")
     protected WebElement LOGIN;
@@ -15,8 +11,12 @@ public class AuthorizationPage {
     @FindBy(xpath = "(//input[@required])[2]")
     protected WebElement PASSWORD;
 
-    @FindBy (xpath = "//button[@class=\"sc-9a4spb-0 gYNtqF sc-11ptd2v-2-Component cElCrZ\"]")
+    @FindBy (xpath = "//*[@id=\"__PORTAL__\"]/div/div/div[3]/div[2]/div/div[2]/div[1]/div/button/div")
     protected WebElement submitButton;
+
+    public AuthorizationPage() {
+        super();
+    }
 
     public WebElement getLOGIN() {
         return LOGIN;

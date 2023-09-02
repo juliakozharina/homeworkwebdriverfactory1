@@ -1,4 +1,4 @@
-package pages;
+package enam;
 
 public enum Browser {
     CHROME

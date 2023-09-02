@@ -5,13 +5,12 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import pages.ProfilePage;
-import pages.Step;
-import pages.WebDriverFactory;
+import help.Step;
+import driver.WebDriverOptions;
 
 
 public class TestHW {
-    WebDriverFactory webDriverFactory = new WebDriverFactory();
+    WebDriverOptions webDriverOptions = new WebDriverOptions();
     Step step = new Step();
 
     String LOGIN = System.getProperty("juliako13@mail.ru");
@@ -19,17 +18,17 @@ public class TestHW {
 
     @BeforeClass
     public static void setupDriver(){
-        WebDriverFactory.driverLoad();
+        WebDriverOptions.driverLoad();
     }
 
     @Before
     public void setWebDriverFactory(){
-        webDriverFactory.create();
+        webDriverOptions.create();
     }
 
     @After
     public void closeWebDriverFactory(){
-        WebDriverFactory.quit();
+        WebDriverOptions.quit();
     }
 
     @Test
@@ -50,10 +49,9 @@ public class TestHW {
                 .selectRemoteWork()
                 .saveChangesOnTheProfilePage();
 
-        WebDriverFactory.getDriver().quit();
-        webDriverFactory.create();
+        WebDriverOptions.getDriver().quit();
+        webDriverOptions.create();
 
-        ProfilePage profilePage = new ProfilePage();
 
         step.openMainPage();
         step.openAuthorizationForm();

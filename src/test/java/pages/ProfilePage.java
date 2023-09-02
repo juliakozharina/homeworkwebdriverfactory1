@@ -1,15 +1,13 @@
 package pages;
 
+import driver.WebDriverOptions;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
-public class ProfilePage {
+public class ProfilePage extends BasePage {
 
-    public ProfilePage(){
-        PageFactory.initElements(WebDriverFactory.getDriver(),this);
-    }
     @FindBy(xpath = "//input[@name=\"fname\"]")
     protected WebElement NAME_FIELD;
 
@@ -42,6 +40,14 @@ public class ProfilePage {
 
     @FindBy(xpath = "//button[@title=\"Сохранить и продолжить\"]")
     protected WebElement saveChanges;
+
+    public ProfilePage(WebDriver driver) {
+        super();
+    }
+
+    public ProfilePage() {
+        super();
+    }
 
     public WebElement getNAME_FIELD() {
         return NAME_FIELD;
@@ -127,7 +133,7 @@ public class ProfilePage {
     public ProfilePage selectCOUNTRYRussia() {
         String selectCOUNTRYRussia = "document.querySelector(\"[name='country']\").click(); " +
                 "+ document.querySelector(\"[title='Россия']\").click();";
-        ((JavascriptExecutor)WebDriverFactory.getDriver()).executeScript(selectCOUNTRYRussia);
+        ((JavascriptExecutor) WebDriverOptions.getDriver()).executeScript(selectCOUNTRYRussia);
         return this;
     }
 
@@ -135,13 +141,13 @@ public class ProfilePage {
         Thread.sleep(500);
         String selectCITYMoscow = "document.querySelector(\"[name='city']\").click(); " +
                 "+ document.querySelector(\"[title='Москва']\").click();";
-        ((JavascriptExecutor)WebDriverFactory.getDriver()).executeScript(selectCITYMoscow);
+        ((JavascriptExecutor) WebDriverOptions.getDriver()).executeScript(selectCITYMoscow);
         return this;
     }
 
     public ProfilePage selectRemoteWork() {
         String script = "document.querySelector(\"[value='remote']\").click();";
-        ((JavascriptExecutor)WebDriverFactory.getDriver()).executeScript(script);
+        ((JavascriptExecutor) WebDriverOptions.getDriver()).executeScript(script);
         return this;
     }
 
